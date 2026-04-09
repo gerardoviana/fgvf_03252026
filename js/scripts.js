@@ -62,3 +62,46 @@ console.log("su pantalla posee"+width+"pixeles de ancho y "+height+"pixeles de a
 console.log("window.screen.avail.Width :"+window.screen.availWidth+"px","window.screen.availHeight:"+window.screen.availHeight+"px");
 
 console.log("document.body.clientWidth:"+document.body.clientWidth+"px","document.body.clientHeight:"+document.body.clientHeight+"px");
+
+function calcular(psumando,ssumando,salida){
+
+    //SE CAPTURAN LOS VALORES DEL HTML
+    primerSumando = document.getElementById(psumando);
+    segundoSumando = document.getElementById(ssumando);
+    
+    //SE REALIZA EL CALCULO
+    let calculo = (parseFloat(primerSumando.value) + parseFloat(segundoSumando.value));
+
+    //SE ASIGNA EL VALOR AL CAMPO DE SALIDA
+    document.getElementById(salida).innerHTML = calculo
+}
+
+function crearElemento(url = null){
+    if(url !== null){
+        url = url;
+    }else{
+        url = "https://as2.ftcdn.net/jpg/01/09/00/83/220_F_109008395_OQDupHMza1V6CN0zrJwWAKlaktT4IsRW.jpg"
+    }
+
+    //SE CREA UN NUEVO ELEMENTO EN EL HTML
+
+    let objetoimagen = document.createElement("img");
+
+    //SE ASIGNAN PROPIEDADES CON VALORES ESPECIFICOS
+    objetoimagen.id = "imagencreada";
+    objetoimagen.src = url;
+    objetoimagen.alt = "Icono sobre control de videojuego";
+    objetoimagen.title = "Control de videojuego";
+    objetoimagen.width = 220;
+    objetoimagen.height = 165;
+
+    //SE AGREGA UNA ESCUCHA AL EVENTO CLICK
+    objetoimagen.addEventListener('click',function(){
+        objetoimagen.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkU5595AC-bbsoPF-Ik0WzUbVj9rnAbs9lkw&s";
+        objetoimagen.width = 225;
+        objetoimagen.height = 225;
+    });
+
+    //SE "PEGA O "ADHIERE" AL LIENZO (<div>)
+    document.getElementById('lienzo').appendChild(objetoimagen);
+}
